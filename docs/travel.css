@@ -1,0 +1,63 @@
+body{
+    background: url("C:/Users/stu.RAVTECH/Desktop/download.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+table{
+    border:  groove turquoise;
+    background-color: aquamarine; 
+}
+header{
+    display: flex; justify-content: space-around;
+    margin-top: 5%;
+}
+header > div{
+    display: inline-block;
+}
+.flights{
+    width: 30%;
+    height: 30%;
+}
+label{
+    width: 100px; display: inline-block;
+ }
+.bookFlightForm{
+     border: 3px groove turquoise;
+     background-color: aquamarine; 
+ }
+ input{
+    background-color: aquamarine; 
+ }
+ .bookButton{
+    background-color: dodgerblue; 
+    margin-left: 35%;
+ }
+ .reservation-table{
+    display: flex; justify-content: space-around;
+    margin-top: 5%;
+ }
+ button{
+    background-color: dodgerblue;
+ }
+footer{
+    display: flex; justify-content: space-around;
+    margin-top: 5%;
+
+}
+footer > div{
+    display: inline-block;
+    border: 3px groove turquoise;
+    background-color: aquamarine; 
+}
+h1{
+    text-align: center;
+    color: fuchsia;
+}
+select{
+    background-color: aquamarine; 
+}
+option{
+    background-color: aquamarine; 
+}
