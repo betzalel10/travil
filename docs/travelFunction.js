@@ -56,31 +56,52 @@ function order(){
         .replace('#num_of_pasengers', document.getElementById('input-passengers').value)
         .replace('#total_price', document.getElementById('input-passengers').value * aa.price)
     
-    let d={flight_id:b, passenger_name:document.getElementById('input-name').value , passenger_id:document.getElementById('input-ID').value
+    let d={flight_id:b-1, passenger_name:document.getElementById('input-name').value , passenger_id:document.getElementById('input-ID').value
                 , dastination:document.getElementById('input-destinationID').value + " " + aa.dastination, 
                 num_of_pasengers:document.getElementById('input-passengers').value, total_price:document.getElementById('input-passengers').value * aa.price}
     orders.push(d)
     console.log(orders);
                 
     torder.innerHTML += orderRowHtml;
+
+    document.getElementById('input-name').value = ''
+    document.getElementById('input-ID').value = ''
+    document.getElementById('input-destinationID').value = ''
+    document.getElementById('input-passengers').value = ''
+    document.getElementById('input-passengers').value = ''
 }
 
+let tsearch = [];
 function searchName(){
-    let chackname = document.getElementById('input-searchName').value
+    
+    let checkname = document.getElementById('input-searchName').value
 
-    let zz = orders.find(yy =>{
-        return yy.passenger_name == chackname
+    let findName = orders.filter(yy =>{
+            return yy.passenger_name == checkname
     })
-    console.log(zz);
-    let tsearch = document.querySelector('.search-table tbody')
+    console.log(findName, "finliner");
+   
 
-     
-        .replace('#flight_id',zz.flight_id)
-        .replace('#passenger_name', zz.passenger_name)
-        .replace('#passenger_id', zz.passenger_id)
-        .replace('#dastination', zz.dastination)
-        .replace('#num_of_pasengers', zz.num_of_pasengers)
-        .replace('#total_price', zz.total_price)
 
-        tsearch.innerHTML += searchRowHtml;
+let orderTemplate = `<tr> <td>#flight_id</td>
+                    <td>#passenger_name</td>
+                    <td>#passenger_id</td>
+                    <td>#dastination</td>
+                    <td>#num_of_pasengers</td>
+                    <td>#total_price</td></tr>`
+
+    findName.forEach(x =>{
+        tsearch = orderTemplate
+        .replace('#flight_id',x.flight_id)
+        .replace('#passenger_name', x.passenger_name)
+        .replace('#passenger_id', x.passenger_id)
+        .replace('#dastination', x.dastination)
+        .replace('#num_of_pasengers', x.num_of_pasengers)
+        .replace('#total_price', x.total_price)
+        console.log(tsearch)
+        document.querySelector(".table-search").innerHTML += tsearch;
+    })
+    
+
+    document.getElementById('input-searchName').value = '';
 }
